@@ -11,15 +11,13 @@ Setup is mostly the same.
 Additionally, set `recipe_viewer` in [gradle.properties](gradle.properties). Remember to remove unused
 example code. Make sure versions are up-to-date.
 
-When you publish your mod, you should use jars provided by GitHub Actions. These jars will have
-build number metadata and will be compressed by the Machete plugin.
+When you publish your mod, you should use jars provided by GitHub Actions. These jars will be built in a predictable
+environment and will have build number metadata.
 
 ## Features
 - Access to Create and all of its dependencies
-- Mojang Mappings base, with Quilt Mappings and Parchment providing Javadoc and parameters
-- VineFlower decompiler for high quality Minecraft sources: `gradlew genSourcesWithVineflower`
-- GitHub Actions automatic build workflow
-- Machete Gradle plugin to shrink jar file sizes
+- Mojang Mappings base, with Parchment providing Javadoc and parameters
+- Automatic build workflow with GitHub Actions
 - Developer QOL: Mod Menu, LazyDFU, recipe viewers
 
 ## Other Templates
