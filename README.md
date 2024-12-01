@@ -18,7 +18,7 @@ environment and will have build number metadata.
 - Access to Create and all of its dependencies
 - Mojang Mappings base, with Parchment providing Javadoc and parameters
 - Automatic build workflow with GitHub Actions
-- Developer QOL: Mod Menu, LazyDFU, recipe viewers
+- Developer QOL: Mod Menu, recipe viewers
 
 ## Other Templates
 - [Multi-loader template](https://github.com/Fabricators-of-Create/create-multiloader-addon-template)
