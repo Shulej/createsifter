@@ -1,32 +1,19 @@
-# Create Fabric Addon Template
+Create Sifting (Fabric Port)
+============================
 
-This template mod comes pre-configured for developing an addon mod for Create on Fabric.
+[![](https://img.shields.io/badge/REQUIRES CREATE v0.5.1j for 1.20.1-gold?logo=curseforge&labelColor=gray&style=for-the-badge)](https://www.curseforge.com/minecraft/mc-mods/create)
 
+This is the Fabric port of the popular mod [Create Sifting](https://www.curseforge.com/minecraft/mc-mods/create-sifting) by **oierbravo**, bringing its functionality to Create mod users on Minecraft 1.20.1.
 
-## Setup
+What is Create Sifting?
+-----------------------
 
-This template is an extension of the base [Fabric Example Mod](https://github.com/FabricMC/fabric-example-mod).
-Setup is mostly the same.
+Create Sifting adds a simple sifter mechanic to the **Create** mod, inspired by the sieves from Ex Nihilo. It allows players to sift through basic materials to extract resources like ores.
 
-Additionally, set `recipe_viewer` in [gradle.properties](gradle.properties). Remember to remove unused
-example code. Make sure versions are up-to-date.
+### Features:
 
-When you publish your mod, you should use jars provided by GitHub Actions. These jars will be built in a predictable
-environment and will have build number metadata.
+*   Seamlessly integrates with **Create v0.5.1j for 1.20.1**.
+*   Simple and intuitive sifting mechanics perfect for modpacks.
+*   Includes basic ore recipes with potential for expansion in custom modpacks.
 
-## Features
-- Access to Create and all of its dependencies
-- Mojang Mappings base, with Parchment providing Javadoc and parameters
-- Automatic build workflow with GitHub Actions
-- Developer QOL: Mod Menu, recipe viewers
-
-## Other Templates
-- [Multi-loader template](https://github.com/Fabricators-of-Create/create-multiloader-addon-template)
-- [Forge-only template](https://github.com/kotakotik22/CreateAddonTemplate)
-
-## Help
-Questions? Join us in the #devchat channel of the [Create Discord](https://discord.com/invite/hmaD7Se).
-
-## License
-
-This template is available under the CC0 license. Feel free to do as you wish with it.
+This mod is designed for modpack creators who want a straightforward resource sifting solution without introducing unnecessary complexity.

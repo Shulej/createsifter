@@ -29,12 +29,56 @@ repositories {
 	maven { url = "https://maven.blamejared.com" } // JEI
 
 	maven { url = "https://maven.terraformersmc.com/releases" } // Mod Menu, EMI
+	maven {
+		// Shedaniel's maven (Architectury API)
+		url = "https://maven.architectury.dev"
+		content {
+			includeGroup "dev.architectury"
+		}
+	}
+
+	maven {
+		// saps.dev Maven (KubeJS and Rhino)
+		url = "https://maven.saps.dev/minecraft"
+		content {
+			includeGroup "dev.latvian.mods"
+		}
+	}
+
+	maven {
+		url = 'https://maven.blamejared.com'
+		name = 'BlameJared Maven'
+	}
 }
 
 configurations.configureEach {
 	resolutionStrategy {
 		// make sure the desired version of loader is used. Sometimes old versions are pulled in transitively.
 		force("net.fabricmc:fabric-loader:$fabric_loader_version")
+	}
+}
+
+sourceSets.main {
+	resources {
+		srcDir("src/generated/resources")
+		exclude(".cache/**")
+		exclude("assets/create/**")
+	}
+}
+
+loom {
+	runs {
+		create("datagen") {
+			client()
+
+			name = "Minecraft Data"
+			vmArg("-Dfabric-api.datagen")
+			vmArg("-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}")
+			vmArg("-Dfabric-api.datagen.modid=createsifter")
+			vmArg("-Dporting_lib.datagen.existing_resources=${file("src/main/resources")}")
+
+			environmentVariable("DATAGEN", "TRUE")
+		}
 	}
 }
 
@@ -61,16 +105,20 @@ dependencies {
 	switch (recipe_viewer.toLowerCase(Locale.ROOT)) {
 		case "jei": modLocalRuntime("mezz.jei:jei-$minecraft_version-fabric:$jei_version"); break
 		case "rei": modLocalRuntime("me.shedaniel:RoughlyEnoughItems-fabric:$rei_version"); break
-		case "emi": modLocalRuntime("dev.emi:emi:$emi_version"); break
+		case "emi": modLocalRuntime("dev.emi:emi-fabric:$emi_version"); break
 		case "disabled": break
 		default: println("Unknown recipe viewer specified: $recipe_viewer. Must be JEI, REI, EMI, or disabled.")
 	}
 	// if you would like to add integration with them, uncomment them here.
-//    modCompileOnly("mezz.jei:jei-$minecraft_version-fabric:$jei_fabric_version")
-//    modCompileOnly("mezz.jei:jei-$minecraft_version-common:$jei_fabric_version")
+    modCompileOnly("mezz.jei:jei-$minecraft_version-fabric:$jei_version")
+//    modCompileOnly("mezz.jei:jei-$minecraft_version-common:$jei_version")
 //    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version")
 //    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
 //    modCompileOnly("dev.emi:emi:$emi_version")
+
+	modImplementation("dev.latvian.mods:kubejs-fabric:${kubejs_version}")
+	modImplementation('com.blamejared.crafttweaker:CraftTweaker-fabric-1.20.1:14.0.9')
+	modImplementation('com.blamejared.createtweaker:CreateTweaker-fabric-1.20.1:4.0.13')
 }
 
 processResources {
