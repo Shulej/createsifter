@@ -1,7 +1,9 @@
+[CREATE]: https://www.curseforge.com/minecraft/mc-mods/create
+
 Create Sifting (Fabric Port)
 ============================
 
-[![](https://img.shields.io/badge/REQUIRES CREATE v0.5.1j for 1.20.1-gold?logo=curseforge&labelColor=gray&style=for-the-badge)](https://www.curseforge.com/minecraft/mc-mods/create)
+[![](https://img.shields.io/badge/REQUIRES CREATE v0.5.1j for 1.20.1-gold?logo=curseforge&labelColor=gray&style=for-the-badge)][CREATE]
 
 This is the Fabric port of the popular mod [Create Sifting](https://www.curseforge.com/minecraft/mc-mods/create-sifting) by **oierbravo**, bringing its functionality to Create mod users on Minecraft 1.20.1.
 
