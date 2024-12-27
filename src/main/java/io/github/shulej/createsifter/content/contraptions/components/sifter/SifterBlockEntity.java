@@ -187,6 +187,8 @@ public class SifterBlockEntity extends KineticBlockEntity implements SidedStorag
 		for (int i = 0; i < getItemsProcessedPerCycle(); i++) {
 			try (Transaction t = TransferUtil.getTransaction()) {
 				ItemStackHandlerSlot slot = inputInv.getSlot(0);
+				if (slot.isResourceBlank())
+					break;
 				slot.extract(slot.getResource(), 1, t);
 
 				lastRecipe.rollResults().forEach(stack -> tryToInsertOutputItem(outputInv, stack, t));
